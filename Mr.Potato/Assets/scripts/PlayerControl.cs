@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     Transform mGroundCheck;
     private bool bJump = false;
     public float JumpForce;
-
+    
     void Start()
     {
         heroBody = GetComponent<Rigidbody2D>();
@@ -37,11 +37,14 @@ public class PlayerControl : MonoBehaviour
 
         bGrounded = Physics2D.Linecast(transform.position, mGroundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-        if (Input.GetButtonDown("Jump")&&bGrounded)
+        /*if (Input.GetButtonDown("Jump") && bGrounded)
+        {
+            bJump = true;
+        }*/
+        if (Input.GetKeyDown(KeyCode.Space) && bGrounded)
         {
             bJump = true;
         }
-
 
     }
 
@@ -73,4 +76,6 @@ public class PlayerControl : MonoBehaviour
 
         bFaceRight = !bFaceRight;
     }
+
+
 }
