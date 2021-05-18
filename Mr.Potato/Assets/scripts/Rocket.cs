@@ -4,41 +4,24 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    private Rigidbody2D rocketBody;
-    float faceTo;
-    bool rocketLive = false;
-    public float rocketForce=5f;
+    public GameObject explosion;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        faceTo = GameObject.Find("Hero").transform.localScale.x;
-    }
     void Start()
     {
-        rocketBody = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, 2);
     }
 
     // Update is called once per frame
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        float rotationZ = Random.Range(0, 360);
+        Instantiate(explosion, transform.position, Quaternion.Euler(new Vector3(0, 0, rotationZ)));
+        Destroy(gameObject);
+
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            rocketLive = true;
-        }
-        if(rocketLive == true)
-        {
-            if (faceTo > 0)
-            {
-
-                rocketBody.AddForce(new Vector2(rocketForce, 0f));
-            }
-            else
-            {
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
-                rocketBody.AddForce(new Vector2(-rocketForce, 0f));
-            }
-        }
+        
     }
 }

@@ -9,7 +9,9 @@ public class PlayerControl : MonoBehaviour
     public float moveForce;
     public float MaxSpeed;
     private float flinput;
-    private bool bFaceRight = true;
+    [HideInInspector]//让public变量不在unity中显示
+    public bool bFaceRight = true;
+    //[SerializeField] 让private变量在unity中显示
     private bool bGrounded = false;
     Transform mGroundCheck;
     private bool bJump = false;
