@@ -16,11 +16,13 @@ public class PlayerControl : MonoBehaviour
     Transform mGroundCheck;
     private bool bJump = false;
     public float JumpForce;
+    private Animator anim;
     
     void Start()
     {
         heroBody = GetComponent<Rigidbody2D>();
         mGroundCheck = transform.Find("GroundCheck");
+        anim = gameObject.GetComponent<Animator>();
 
     }
 
@@ -47,6 +49,8 @@ public class PlayerControl : MonoBehaviour
         {
             bJump = true;
         }
+        
+        anim.SetFloat("speed", Mathf.Abs(heroBody.velocity.x));
 
     }
 
@@ -67,6 +71,7 @@ public class PlayerControl : MonoBehaviour
         {
             heroBody.AddForce(new Vector2(0f, JumpForce));
             bJump = false;
+            anim.SetTrigger("Jump");
         }
     }
 
