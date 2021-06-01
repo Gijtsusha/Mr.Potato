@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public Rigidbody2D rocket;
-    public float fSpeed = 10;
+    public float fSpeed = 10f;
     PlayerControl playerCtrl;
     private AudioSource ac;
     private Animator anim;

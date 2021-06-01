@@ -15,9 +15,15 @@ public class Rocket : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         float rotationZ = Random.Range(0, 360);
-        Instantiate(explosion, transform.position, Quaternion.Euler(new Vector3(0, 0, rotationZ)));
-        Destroy(gameObject);
-
+        if(collision.tag != "Player")
+        {
+            Instantiate(explosion, transform.position, Quaternion.Euler(new Vector3(0, 0, rotationZ)));
+            Destroy(gameObject);
+            if (collision.tag == "Enemy")
+            {
+                collision.GetComponent<Enemy>().Hurt();
+            }
+        }
     }
 
     void Update()

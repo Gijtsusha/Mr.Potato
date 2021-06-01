@@ -8,8 +8,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip[] ouchClips;
     public float hurtBloodPoint = 20f;
     public float hurtForce=100f;
+    public float health=100f;
 
-    float health=100f;
     private SpriteRenderer healthBar;
     private Vector3 healthScale;
     private float lastHurt;
@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
                     TakeDamage(collision.gameObject.transform);
                     lastHurt = Time.time;
                 }
-                else
+                if(health <= 0)
                 {
                     //播放死亡动画
                     anim.SetTrigger("Die");
@@ -63,14 +63,6 @@ public class PlayerHealth : MonoBehaviour
             }
         }
         
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "killerTrigger")
-        {
-            anim.SetTrigger("Fall");
-        }
     }
 
     void TakeDamage(Transform enemy)
