@@ -64,15 +64,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\BackGrounds.cs" />
+    <Compile Include="Assets\scripts\Bomb.cs" />
+    <Compile Include="Assets\scripts\BombPickUp.cs" />
     <Compile Include="Assets\scripts\CameraMove.cs" />
     <Compile Include="Assets\scripts\Destroyer.cs" />
     <Compile Include="Assets\scripts\Enemy.cs" />
     <Compile Include="Assets\scripts\Falling.cs" />
     <Compile Include="Assets\scripts\Gun.cs" />
     <Compile Include="Assets\scripts\HealthBar.cs" />
+    <Compile Include="Assets\scripts\HealthPickup.cs" />
+    <Compile Include="Assets\scripts\LayBombs.cs" />
+    <Compile Include="Assets\scripts\PickUpSpawner.cs" />
     <Compile Include="Assets\scripts\PlayerControl.cs" />
     <Compile Include="Assets\scripts\PlayerHealth.cs" />
     <Compile Include="Assets\scripts\Rocket.cs" />
+    <Compile Include="Assets\scripts\UITest.cs" />
     <Compile Include="Assets\scripts\spawner.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

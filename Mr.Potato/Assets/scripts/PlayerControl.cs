@@ -17,7 +17,9 @@ public class PlayerControl : MonoBehaviour
     private bool bJump = false;
     public float JumpForce;
     private Animator anim;
-    
+
+    public AudioClip[] Jump;
+
     void Start()
     {
         heroBody = GetComponent<Rigidbody2D>();
@@ -72,6 +74,8 @@ public class PlayerControl : MonoBehaviour
             heroBody.AddForce(new Vector2(0f, JumpForce));
             bJump = false;
             anim.SetTrigger("Jump");
+            int i = Random.Range(0, Jump.Length - 1);
+            AudioSource.PlayClipAtPoint(Jump[i], transform.position);
         }
     }
 

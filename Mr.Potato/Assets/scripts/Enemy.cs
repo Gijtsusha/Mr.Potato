@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public float HP = 2;
     public float minSpinForce = -200f;
     public float maxSpinForce = 200f;
+    public GameObject UI100;
+    public AudioClip[] Score;
 
     private Rigidbody2D enemyBody;
     private Transform frontCheck;
@@ -68,6 +70,12 @@ public class Enemy : MonoBehaviour
     void death()
     {
         curBody.sprite = deadEnemy;
+        SpriteRenderer[] Sprites = GetComponentsInChildren<SpriteRenderer>();
+        foreach(SpriteRenderer s in Sprites)
+        {
+            s.enabled = false;
+        }
+        curBody.enabled = true;
         isDead = true;
 
         Collider2D[] cols = GetComponents<Collider2D>();
@@ -77,7 +85,15 @@ public class Enemy : MonoBehaviour
             c.isTrigger = true;
         }
 
+        enemyBody.freezeRotation = false;
         enemyBody.AddTorque(Random.Range(minSpinForce, maxSpinForce));
+
+        Vector3 UI100Pos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+        Instantiate(UI100, UI100Pos, Quaternion.identity);
+        int i = Random.Range(0, Score.Length - 1);
+        AudioSource.PlayClipAtPoint(Score[i], transform.position);
+
+        Debug.Log(Quaternion.identity);
     }
 
     void flip()

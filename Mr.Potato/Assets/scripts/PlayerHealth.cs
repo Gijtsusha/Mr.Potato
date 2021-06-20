@@ -77,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
         AudioSource.PlayClipAtPoint(ouchClips[i], transform.position);
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
         healthBar.transform.localScale = new Vector3(healthScale.x*health * 0.01f, 1, 1);

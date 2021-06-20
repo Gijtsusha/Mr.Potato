@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 86322600117573729}
   - component: {fileID: 86322600117573734}
   - component: {fileID: 228898309}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -91,6 +91,11 @@ MonoBehaviour:
   HP: 2
   minSpinForce: -200
   maxSpinForce: 200
+  UI100: {fileID: 7418647382168625849, guid: 5a52d2098b79fb24494879e65f5c173c, type: 3}
+  Score:
+  - {fileID: 8300000, guid: 039514349165244c6a43be5c3070d14b, type: 3}
+  - {fileID: 8300000, guid: 85020549641fa452d9136ac2fc852efd, type: 3}
+  - {fileID: 8300000, guid: 2e20b5071623f44cf9c72acf016de4b6, type: 3}
 --- !u!114 &228898309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 86322600396702220}
   - component: {fileID: 86322600396702221}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1376105357
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -195,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86322600621113839}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: frontCheck
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
